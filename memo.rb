@@ -1,4 +1,4 @@
-require "csv"#CSVファイルを扱うためのを読み込んでいます
+require "csv"
 
 puts "1(メモを作成する)/2(既存のメモを編集する)"
 
@@ -14,7 +14,6 @@ if memo_type == 1
   puts "完了したらctrl + D を押します"
   
   memo = STDIN.read
-  memo = input_memo.chomp
   
   CSV.open("#{file_name}.csv","a") do |csv|
     
@@ -36,11 +35,6 @@ elsif memo_type == 2
     csv.puts ["#{memo}"]
     
   end
-else 
-  
-  puts "１か２の数字を入力してください"
-  
-end
 
-
+  end
 
